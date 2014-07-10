@@ -1,0 +1,13 @@
+<%= link_to 'Create Post', new_post_path %>
+
+<% if @posts.none? %>
+  <h1> No posts yet! </h1>
+<% else %>
+  <% @posts.each do |post| %>
+    <div>
+      <h3><%= post.title %></h3>
+      <%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %>
+      <p><%= post.description %></p>
+    </div>
+  <% end %>
+<% end %>
